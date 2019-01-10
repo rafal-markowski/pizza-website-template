@@ -1,0 +1,82 @@
+.menu {
+    &-header {
+        padding-top: rem(60);
+        padding-bottom: rem(60);
+        
+        &__title {
+            text-align: center;
+        }
+    }
+}
+
+.menu-section {
+    &:not(:first-of-type) {
+        margin-top: rem(80);
+    }
+
+    &--starters {
+        .menu-section__image {
+            background-image: url('../images/starters-2.jpg');
+        }
+    }
+
+    &--sandwiches {
+        .menu-section__image {
+            background-image: url('../images/sandwiches.jpg');
+        }
+    }
+
+    &--pizza {
+        .menu-section__image {
+            background-image: url('../images/pizza.jpg');
+        }
+    }
+    
+    &--drinks {
+        .menu-section__image {
+            background-image: url('../images/beverages.jpg');
+        }
+    }
+    
+    &__image {
+        position: relative;
+        height: 250px;
+        margin-bottom: rem(60);
+    }
+
+    &__title {
+        @include position(absolute, calc(50% - 30px));
+        padding: rem(30) rem(20);
+        background-color: map-get($colors, body-bg);
+
+        &--right {
+            right: 0px;
+        }
+
+        &--left {
+            left: 0;
+        }
+    }
+}
+
+.menu-grid {
+    display: grid;
+    grid-gap: rem(40);
+}
+
+.list {
+    &--space {
+        margin-top: rem(25);
+        margin-bottom: rem(25);
+    }
+
+    &__item {
+        line-height: em(30);
+    }
+}
+
+.price {
+    @include font(1rem, null, 400, 1px);
+    display: inline-block;
+    margin-left: rem(10);
+}

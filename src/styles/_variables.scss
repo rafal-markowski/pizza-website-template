@@ -1,0 +1,16 @@
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+) !default;
+
+$colors: (
+    text: #ffffff,
+    top-navigation: #252525,
+    link: #F8F8F8,
+    blend-mode: rgba(0, 0, 0, 0.3),
+    body-bg: #1C1B19
+) !default;
+
+$global-size: 20;

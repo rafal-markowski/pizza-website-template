@@ -1,0 +1,3 @@
+@function rem($px, $size: $global-size) {
+    @return ($px / $size) * 1rem;
+}

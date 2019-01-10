@@ -1,0 +1,57 @@
+html {
+    font-size: $global-size + px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;    
+    background-color: map-get($colors, body-bg);
+    color: map-get($colors, text);
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: rem(15);
+    padding-right: rem(15);
+
+    @include media-min(sm) {
+        width: 540px;
+    }
+    
+    @include media-min(md) {
+        width: 720px;
+    }
+    
+    @include media-min(lg) {
+        width: 960px;
+    }
+    
+    @include media-min(xl) {
+        width: 1140px;
+    }
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    @include font(em(36), 1em, 700, 11px);
+}
+
+h2 {
+    @include font(em(24), em(31, 24), 500, 7px);
+}
+
+h3 {
+    @extend h2;
+    margin-bottom: rem(20);
+    font-weight: 700;
+}
+
+p {
+    line-height: em(30);
+}

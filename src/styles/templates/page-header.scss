@@ -1,0 +1,72 @@
+.page-header {
+    padding-top: 80px;
+
+    &__background-image {
+        height: 345px;
+        background: {
+            image: url('../images/header.jpg');
+            position: initial;
+            blend-mode: overlay;
+            color: map-get($colors, blend-mode);
+        }
+    }
+
+    &__flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__text-image {
+        width: 90%;
+    }
+}
+
+.top-navigation {
+    @include position(fixed, $top: 0, $right: 0, $left: 0, $z-index: 100);
+    background-color: map-get($colors, top-navigation);
+
+    &__flex {
+        display: flex;
+        align-items: center;
+        padding: rem(20);
+        height: 80px;
+    }
+
+    &__link {
+        padding: rem(7.5) rem(15);
+        color: map-get($colors, link);
+        text-decoration: none;
+        cursor: pointer;
+
+        &--toggle-icon {
+            box-sizing: content-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 37px;
+            height: 37px;
+            margin-left: auto;
+
+            span {
+                width: 100%;
+                border-top: 2px solid map-get($colors, link);
+
+                &:not(:last-child) {
+                    flex-basis: 33%;
+                }
+            }
+        }
+    }
+}
+
+.top-logo {
+    width: 45px;
+    height: 45px;
+}
+
+.top-menu {
+    display: flex;
+    align-items: center;
+}

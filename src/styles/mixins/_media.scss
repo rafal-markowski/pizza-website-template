@@ -1,0 +1,30 @@
+@mixin media-max($name, $breakpoints: $breakpoints) {
+    @if map-has-key($breakpoints, $name) {
+        $value: map-get($breakpoints, $name);
+        
+        @media (max-width: $value) {
+            @content;
+        }
+    }
+}
+
+@mixin media-min($name, $breakpoints: $breakpoints) {
+    @if map-has-key($breakpoints, $name) {
+        $value: map-get($breakpoints, $name);
+        
+        @media (min-width: $value) {
+            @content;
+        }
+    }
+}
+
+@mixin media-between($name-min, $name-max, $breakpoints: $breakpoints) {
+    @if map-has-key($breakpoints, $name) and map-has-key($breakpoints, $name) {
+        $min: map-get($breakpoint, $name-min);
+        $max: map-get($breakpoints, $name-max);
+        
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+}
