@@ -1,0 +1,12 @@
+@mixin media-grid-area($breakpoint, $areas, $columns, $start, $end) {
+    @include media-min($breakpoint) {
+        grid-template-areas: $areas;
+        grid-template-columns: $columns;
+
+        @for $i from $start to $end {
+            &__item-#{$i} {
+                grid-area: item#{$i}; 
+            }
+        }
+    }
+}

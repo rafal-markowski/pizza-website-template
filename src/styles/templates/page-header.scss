@@ -19,6 +19,9 @@
     }
 
     &__text-image {
+        @include media-min(md) {
+            width: 50%;
+        }
         width: 90%;
     }
 }
@@ -26,6 +29,7 @@
 .top-navigation {
     @include position(fixed, $top: 0, $right: 0, $left: 0, $z-index: 100);
     background-color: map-get($colors, top-navigation);
+    box-shadow: 0 2px 5px 0 map-get($colors, box-shadow);
 
     &__flex {
         display: flex;

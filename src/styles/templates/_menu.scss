@@ -4,6 +4,10 @@
         padding-bottom: rem(60);
         
         &__title {
+            @include media-min(md) {
+                margin-left: 10%;
+                text-align: left;
+            } 
             text-align: center;
         }
     }
@@ -18,11 +22,35 @@
         .menu-section__image {
             background-image: url('../images/starters-2.jpg');
         }
+
+        .menu-grid {
+            @include media-grid-area(
+                md,
+                "item1 item3"
+                "item2 item4",
+                1fr 1fr,
+                1,
+                4
+            );
+        }
     }
 
     &--sandwiches {
         .menu-section__image {
             background-image: url('../images/sandwiches.jpg');
+        }
+
+        .menu-grid {
+            @include media-grid-area(
+                md,
+                "item1 item4"
+                "item1 item5"
+                "item2 ."
+                "item3 .",
+                1fr 1fr,
+                1,
+                5
+            );
         }
     }
 
@@ -30,32 +58,66 @@
         .menu-section__image {
             background-image: url('../images/pizza.jpg');
         }
+
+        .menu-grid {
+            @include media-grid-area(
+                md,
+                "item1 item8"
+                "item2 item8"
+                "item3 item8"
+                "item4 item8"
+                "item5 item8"
+                "item6 item9"
+                "item7 .",
+                1fr 1fr,
+                1,
+                9
+            );
+        }
     }
     
     &--drinks {
         .menu-section__image {
             background-image: url('../images/beverages.jpg');
         }
+
+        .menu-grid {
+            @include media-grid-area(
+                md,
+                "item2 item1"
+                "item3 item4",
+                1fr 1fr,
+                1,
+                4
+            )
+        }
     }
     
     &__image {
-        position: relative;
+        @include media-min(md) {
+            height: 400px;   
+        }
+        display: flex;
+        align-items: center;
         height: 250px;
         margin-bottom: rem(60);
-    }
-
-    &__title {
-        @include position(absolute, calc(50% - 30px));
-        padding: rem(30) rem(20);
-        background-color: map-get($colors, body-bg);
 
         &--right {
-            right: 0px;
+            justify-content: flex-end;
         }
 
         &--left {
-            left: 0;
+            justify-content: flex-start;
         }
+    }
+
+    &__title {
+        @include media-min(md) {
+            font-size: em(48);
+            letter-spacing: 15px;
+        }
+        padding: rem(30) rem(20);
+        background-color: map-get($colors, body-bg);
     }
 }
 

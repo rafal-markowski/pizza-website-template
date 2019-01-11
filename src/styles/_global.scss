@@ -48,8 +48,11 @@ h2 {
 
 h3 {
     @extend h2;
-    margin-bottom: rem(20);
     font-weight: 700;
+    
+    &:not(:last-child) {
+        margin-bottom: rem(20);
+    }
 }
 
 p {
