@@ -15,20 +15,17 @@ body {
     padding-left: rem(15);
     padding-right: rem(15);
 
-    @include media-min(sm) {
-        width: 540px;
-    }
-    
-    @include media-min(md) {
-        width: 720px;
-    }
-    
-    @include media-min(lg) {
-        width: 960px;
-    }
-    
-    @include media-min(xl) {
-        width: 1140px;
+    $media: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1180px
+    );
+
+    @each $breakpoint, $width in $media {
+        @include media-min($breakpoint) {
+            width: $width;
+        }
     }
 }
 

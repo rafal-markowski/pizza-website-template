@@ -1,5 +1,9 @@
 .menu {
     &-header {
+        @include media-min(lg) {
+            padding-top: rem(100);
+            padding-bottom: rem(100);
+        }
         padding-top: rem(60);
         padding-bottom: rem(60);
         
@@ -15,6 +19,9 @@
 
 .menu-section {
     &:not(:first-of-type) {
+        @include media-min(lg) {
+            margin-top: rem(100);
+        }
         margin-top: rem(80);
     }
 
@@ -28,10 +35,16 @@
                 md,
                 "item1 item3"
                 "item2 item4",
-                1fr 1fr,
+                repeat(2, 1fr),
                 1,
                 4
             );
+            @include media-min(lg) {
+                grid-template-areas: 
+                    ". item1 item3"
+                    ". item2 item4";
+                grid-template-columns: 0.10fr repeat(2, 1fr);
+            }
         }
     }
 
@@ -47,10 +60,18 @@
                 "item1 item5"
                 "item2 ."
                 "item3 .",
-                1fr 1fr,
+                repeat(2, 1fr),
                 1,
                 5
             );
+            @include media-min(lg) {
+                grid-template-areas: 
+                    ". item1 item4"
+                    ". item1 item5"
+                    ". item2 ."
+                    ". item3 .";
+                grid-template-columns: 0.3fr repeat(2, 1fr);
+            }
         }
     }
 
@@ -69,10 +90,21 @@
                 "item5 item8"
                 "item6 item9"
                 "item7 .",
-                1fr 1fr,
+                repeat(2, 1fr),
                 1,
                 9
             );
+            @include media-min(lg) {
+                grid-template-areas: 
+                    ". item1 item8"
+                    ". item2 item8"
+                    ". item3 item8"
+                    ". item4 item8"
+                    ". item5 item8"
+                    ". item6 item9"
+                    ". item7 .";
+                grid-template-columns: 0.10fr repeat(2, 1fr);
+            }
         }
     }
     
@@ -86,10 +118,16 @@
                 md,
                 "item2 item1"
                 "item3 item4",
-                1fr 1fr,
+                repeat(2, 1fr),
                 1,
                 4
-            )
+            );
+            @include media-min(lg) {
+                grid-template-areas: 
+                    ". item2 item1"
+                    ". item3 item4";
+                grid-template-columns: 0.3fr repeat(2, 1fr);
+            }
         }
     }
     
@@ -97,16 +135,38 @@
         @include media-min(md) {
             height: 400px;   
         }
+        @include media-min(lg) {
+            width: 75%;
+            height: 530px;
+            margin-bottom: rem(100);
+        }
+        @include media-min(xl) {
+            margin-bottom: rem(140);
+        }
+        position: relative;
         display: flex;
         align-items: center;
         height: 250px;
         margin-bottom: rem(60);
 
         &--right {
+            @include media-min(lg) {
+                .menu-section__title {
+                    position: absolute;
+                    right: -20%;
+                }
+            }
             justify-content: flex-end;
         }
 
         &--left {
+            @include media-min(lg) {
+                .menu-section__title {
+                    position: absolute;
+                    left: -20%;
+                }
+            }
+            margin-left: auto;
             justify-content: flex-start;
         }
     }
@@ -115,6 +175,9 @@
         @include media-min(md) {
             font-size: em(48);
             letter-spacing: 15px;
+        }
+        @include media-min(lg) {
+            padding: rem(50) rem(40);   
         }
         padding: rem(30) rem(20);
         background-color: map-get($colors, body-bg);

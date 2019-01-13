@@ -2,6 +2,12 @@
     padding-top: 80px;
 
     &__background-image {
+        @include media-min(lg) {
+            height: 485px;
+        }
+        @include media-min(xl) {
+            height: 785px;
+        }
         height: 345px;
         background: {
             image: url('../images/header.jpg');
@@ -30,28 +36,48 @@
     @include position(fixed, $top: 0, $right: 0, $left: 0, $z-index: 100);
     background-color: map-get($colors, top-navigation);
     box-shadow: 0 2px 5px 0 map-get($colors, box-shadow);
+}
 
-    &__flex {
-        display: flex;
-        align-items: center;
-        padding: rem(20);
-        height: 80px;
+.top-menu {
+    @include media-min(xl) {
+        height: 95px;
+    }
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+
+    &__social-media {
+        width: 30px;
+        height: 30px;
+    }
+
+    &__logo {
+        width: 45px;
+        height: 45px;
     }
 
     &__link {
+        @include media-min(xl) {
+            padding: 1rem;
+        }
+        @include font(em(14), em(21, 14), 700, 2px);
         padding: rem(7.5) rem(15);
         color: map-get($colors, link);
         text-decoration: none;
         cursor: pointer;
 
         &--toggle-icon {
+            @include media-min(xl) {
+                display: none;
+            }
             box-sizing: content-box;
             display: flex;
             flex-direction: column;
             justify-content: center;
             width: 37px;
             height: 37px;
-            margin-left: auto;
 
             span {
                 width: 100%;
@@ -65,12 +91,64 @@
     }
 }
 
-.top-logo {
-    width: 45px;
-    height: 45px;
-}
+.toggle-menu {
+    @include media-min(xl) {
+        display: flex !important;
+        justify-content: flex-end;
+        align-items: center;
 
-.top-menu {
-    display: flex;
-    align-items: center;
+        &__social-media {
+            margin-left: 160px;
+        }
+    }
+    display: none;
+    flex: 1 1;
+    background-color: map-get($colors, top-navigation);
+
+    &__links, &__social-media {
+        display: flex;
+        justify-items: center;
+    }
+
+    &--active {
+        @include media-between(sm, xl) {
+            top: calc(100% + 10px); 
+            left: 0px;
+            right: auto;
+        }
+        @include position(absolute, 100%, 0, null, 0, 10);
+        display: block;
+        padding: 1rem;
+        border-top: 1px solid map-get($colors, border);
+        box-shadow: 0 2px 5px 0 map-get($colors, box-shadow);
+
+        .toggle-menu__links, .toggle-menu__social-media {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .toggle-menu__social-media {
+            flex-direction: row;
+            justify-content: center;
+            padding-top: 1rem;
+        }
+
+        .top-menu__link {
+            padding: 1rem;
+        }
+
+        .toggle-menu__close-link {
+            &::after {
+                position: absolute;
+                left: -100vw;
+                top: -100vh;
+                right: -100vw;
+                bottom: -100vh;
+                z-index: -10;
+                display: block;
+                content: '';
+                cursor: auto;
+            }
+        }
+    }
 }

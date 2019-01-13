@@ -3,7 +3,7 @@
         grid-template-areas: $areas;
         grid-template-columns: $columns;
 
-        @for $i from $start to $end {
+        @for $i from $start through $end {
             &__item-#{$i} {
                 grid-area: item#{$i}; 
             }

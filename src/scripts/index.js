@@ -17,3 +17,6 @@ import '../images/stamp-logo-footer.svg'
 import '../images/facebook.svg';
 import '../images/instagram.svg';
 import '../images/twitter.svg';
+
+import './jquery-toggle-menu';
+import './jquery-scroll';
